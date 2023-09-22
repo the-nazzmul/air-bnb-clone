@@ -5,6 +5,7 @@ import { Nunito } from "next/font/google";
 import Footer from "@/components/Footer/Footer";
 // import Modal from "@/components/modals/Modal";
 import RegisterModal from "@/components/modals/RegisterModal";
+import ToasterProvider from "@/providers/ToasterProvider";
 
 const inter = Nunito({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {/* <Modal isOpen title="Hello" actionLabel="Submit"  /> */}
+        <ToasterProvider />
         <RegisterModal />
         <Navbar />
         <main>{children}</main>

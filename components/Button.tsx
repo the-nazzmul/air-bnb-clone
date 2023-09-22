@@ -40,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
           ? "py-1 text-sm font-light border-[1px]"
           : "py-3 text-md font-semibold border-2"
       }
-      ${Icon && "flex items-center justify-center gap-4"}
+      ${Icon && "flex items-center justify-center gap-2"}
       `}
     >
       {Icon && <Icon size={`${small ? "16" : "24"}`} />}

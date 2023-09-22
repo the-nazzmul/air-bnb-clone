@@ -24,7 +24,6 @@ const Input: React.FC<InputProps> = ({
   register,
   errors,
 }) => {
-  console.log("iunput", errors[id]);
   return (
     <div className="w-full relative">
       {formatPrice && (
@@ -36,7 +35,7 @@ const Input: React.FC<InputProps> = ({
       <input
         id={id}
         disabled={disabled}
-        {...(register(id), { required })}
+        {...register(id, { required: true })}
         placeholder=" "
         type={type}
         className={`

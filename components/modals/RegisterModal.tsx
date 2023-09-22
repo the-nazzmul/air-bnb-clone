@@ -6,10 +6,12 @@ import { useCallback, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 
-import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useRegisterModal from "@/hooks/useRegisterModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
+import toast from "react-hot-toast";
+import Button from "../Button";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -36,7 +38,7 @@ const RegisterModal = () => {
         registerModal.onClose();
       })
       .catch((e) => {
-        console.log(e);
+        toast.error("Something went wrong");
       })
       .finally(() => {
         setIsLoading(false);
@@ -74,6 +76,24 @@ const RegisterModal = () => {
     </div>
   );
 
+  const footerContent = (
+    <div className="flex flex-col gap-4 mt-3">
+      <hr />
+      <Button
+        label="Continue with Google"
+        outline
+        icon={FcGoogle}
+        onClick={() => {}}
+      />
+      <Button
+        label="Continue with GitHub"
+        outline
+        icon={AiFillGithub}
+        onClick={() => {}}
+      />
+    </div>
+  );
+
   return (
     <Modal
       disabled={isLoading}
@@ -83,6 +103,7 @@ const RegisterModal = () => {
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
+      footer={footerContent}
     />
   );
 };
